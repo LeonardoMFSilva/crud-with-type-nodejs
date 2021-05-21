@@ -1,0 +1,29 @@
+{
+  "name": "crudts",
+  "version": "1.0.0",
+  "description": "Simple CRUD using TS",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonardoMFSilva/crud-with-type-nodejs.git"
+  },
+  "keywords": [
+    "typescript",
+    "usuario",
+    "criacao"
+  ],
+  "author": "Leonardo Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeonardoMFSilva/crud-with-type-nodejs/issues"
+  },
+  "homepage": "https://github.com/LeonardoMFSilva/crud-with-type-nodejs#readme",
+  "dependencies": {
+    "@types/node": "^15.6.0",
+    "query-string": "^7.0.0",
+    "typescript": "^4.2.4"
+  }
+}
