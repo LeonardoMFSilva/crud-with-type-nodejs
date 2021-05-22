@@ -20,13 +20,25 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var http_1 = require("http");
-var queryString = __importStar(require("query-string"));
+var query_string_1 = require("query-string");
 var url = __importStar(require("url"));
+var fs = __importStar(require("fs"));
 var port = 5000;
 var server = http_1.createServer(function (request, response) {
     var urlParse = url.parse(request.url ? request.url : '', true);
-    var params = queryString.parse(urlParse.search ? urlParse.search : '');
-    response.end("Hello World!!!");
+    var resposta;
+    var params = query_string_1.parse(urlParse.search ? urlParse.search : '');
+    if (urlParse.pathname == '/criar-usuario') {
+        fs.writeFile('users/' + params.id + '.txt', JSON.stringify(params), function (err) {
+            if (err)
+                throw err;
+            console.log('Saved!');
+            resposta = 'Usuario criado ou atualizado com sucesso';
+            response.statusCode = 200;
+            response.setHeader('Content-Type', 'application/json');
+            response.end(resposta);
+        });
+    }
 });
 //Execução do server
 server.listen(port, function () {
