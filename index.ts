@@ -7,6 +7,12 @@ const port = 5000;
 
 const server = createServer((request: IncomingMessage, response: ServerResponse) => {
 
+    const urlParse = url.parse(request.url ? request.url : '', true);
+    const params = queryString.parse(urlParse.search ? urlParse.search : '');
+
+    
+
+
     response.end("Hello World!!!");
 
 });
